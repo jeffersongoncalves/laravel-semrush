@@ -1,0 +1,64 @@
+{
+    "name": "jeffersongoncalves/laravel-semrush",
+    "description": "A lightweight Semrush Analytics API client for Laravel — domain analytics, keyword research, and backlinks.",
+    "keywords": [
+        "laravel",
+        "laravel-semrush"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-semrush",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jefferson Simão Gonçalves",
+            "email": "gerson.simao.92@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.21",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jeffersongoncalves\\Semrush\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jeffersongoncalves\\Semrush\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jeffersongoncalves\\Semrush\\SemrushServiceProvider"
+            ],
+            "aliases": {
+                "Semrush": "Jeffersongoncalves\\Semrush\\Facades\\Semrush"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
