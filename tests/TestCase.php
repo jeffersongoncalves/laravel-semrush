@@ -1,8 +1,8 @@
 <?php
 
-namespace Jeffersongoncalves\Semrush\Tests;
+namespace JeffersonGoncalves\Semrush\Tests;
 
-use Jeffersongoncalves\Semrush\SemrushServiceProvider;
+use JeffersonGoncalves\Semrush\SemrushServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -12,5 +12,10 @@ class TestCase extends Orchestra
         return [
             SemrushServiceProvider::class,
         ];
+    }
+
+    protected function defineEnvironment($app): void
+    {
+        $app['config']->set('semrush.key', 'fake-key');
     }
 }

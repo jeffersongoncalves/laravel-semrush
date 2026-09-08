@@ -1,3 +1,8 @@
 <?php
 
-uses(Jeffersongoncalves\Semrush\Tests\TestCase::class)->in('Feature', 'Unit');
+use Illuminate\Support\Facades\Http;
+use JeffersonGoncalves\Semrush\Tests\TestCase;
+
+uses(TestCase::class)
+    ->beforeEach(fn () => Http::preventStrayRequests())
+    ->in('Feature');
